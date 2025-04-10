@@ -1220,6 +1220,7 @@ rubiconproject.com, 27130, RESELLER, 0bfd66d529a55807
 pubeasy.io,110039,RESELLER 
 
 #META
+facebook.com, 627995356859841, RESELLER, c3e20eee3f780d68
 
 #IRONSOURCE
 
