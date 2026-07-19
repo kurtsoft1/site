@@ -1,0 +1,157 @@
+/* TR: SoundLift tanıtım sitesi — tek stil dosyası. Marka tokenları uygulamanın kendisiyle birebir
+       (bg #0B0C12, accent #9D7BFF, safe #5EE6C8, rampa teal→mor→amber→kırmızı). Sıfır JS,
+       sıfır dış bağımlılık: fontlar kendi sunucumuzda, tek CSS. Sayfalar: index, privacy,
+       data-deletion, terms, support.
+   EN: The SoundLift marketing site — a single stylesheet. Brand tokens match the app exactly
+       (bg #0B0C12, accent #9D7BFF, safe #5EE6C8, the teal→purple→amber→red ramp). Zero JS, zero
+       external dependencies: fonts are self-hosted, one CSS file. Pages: index, privacy,
+       data-deletion, terms, support. */
+
+@font-face {
+  font-family: 'Sora';
+  src: url('fonts/sora_variable.ttf') format('truetype-variations');
+  font-weight: 100 800;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Geist';
+  src: url('fonts/geist_variable.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+:root {
+  --bg: #0b0c12;
+  --card: rgba(255, 255, 255, 0.045);
+  --line: rgba(255, 255, 255, 0.10);
+  --text: #edebf6;
+  --muted: #a7a9bc;
+  --faint: #6e7082;
+  --accent: #9d7bff;
+  --accent2: #6c4fe0;
+  --safe: #5ee6c8;
+  --ramp: linear-gradient(90deg, #5ee6c8, #9d7bff 55%, #ffb86b 80%, #ff7a8a);
+  --radius: 20px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Geist', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* TR: Üstte yumuşak mor ışıma — uygulamanın wash'ı. EN: The soft purple bloom on top — the app's wash. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(900px 520px at 50% -8%, rgba(157, 123, 255, 0.20), transparent 70%),
+    radial-gradient(700px 420px at 50% 108%, rgba(94, 230, 200, 0.06), transparent 70%);
+  z-index: 0;
+}
+
+.wrap { position: relative; z-index: 1; max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+.narrow { max-width: 760px; }
+
+h1, h2, h3 { font-family: 'Sora', sans-serif; font-weight: 800; letter-spacing: -0.015em; margin: 0; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ---------------------------------------------------------------- header */
+header {
+  position: sticky; top: 0; z-index: 10;
+  backdrop-filter: blur(14px);
+  background: rgba(11, 12, 18, 0.78);
+  border-bottom: 1px solid var(--line);
+}
+header .bar { display: flex; align-items: center; gap: 14px; height: 68px; }
+header img { width: 34px; height: 34px; border-radius: 10px; }
+header .name { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 18px; }
+header nav { margin-left: auto; display: flex; gap: 22px; font-size: 14.5px; }
+header nav a { color: var(--muted); }
+header nav a:hover { color: var(--text); text-decoration: none; }
+
+/* ------------------------------------------------------------------ hero */
+.hero { text-align: center; padding: 84px 0 56px; }
+.hero img.mark { width: 116px; height: 116px; border-radius: 30px; box-shadow: 0 24px 60px rgba(108, 79, 224, 0.35); }
+.hero h1 { font-size: clamp(38px, 6vw, 60px); line-height: 1.06; margin: 28px 0 0; }
+.hero h1 .grad {
+  background: var(--ramp); -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.hero p.sub { color: var(--muted); font-size: 19px; max-width: 620px; margin: 20px auto 0; }
+.rule { width: 300px; height: 5px; border-radius: 4px; background: var(--ramp); margin: 30px auto 0; }
+
+.cta { display: inline-flex; align-items: center; gap: 10px; margin-top: 34px;
+  background: #f5f4fa; color: #0c0d15; font-weight: 700; font-size: 16px;
+  padding: 15px 30px; border-radius: 100px; transition: transform .15s ease; }
+.cta:hover { transform: translateY(-2px); text-decoration: none; }
+.cta.ghost { background: transparent; color: var(--text); border: 1px solid var(--line); }
+.note { color: var(--faint); font-size: 13.5px; margin-top: 16px; }
+
+/* ----------------------------------------------------------- screenshots */
+.shots { display: flex; gap: 22px; justify-content: center; flex-wrap: wrap; padding: 20px 0 70px; }
+.shots figure { margin: 0; width: 280px; }
+.shots img { width: 100%; border-radius: 22px; border: 1px solid var(--line); display: block; }
+.shots figcaption { color: var(--muted); font-size: 14px; text-align: center; margin-top: 12px; }
+
+/* -------------------------------------------------------------- features */
+section { padding: 62px 0; }
+.eyebrow { color: var(--faint); font-size: 12px; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; }
+section h2 { font-size: clamp(28px, 4vw, 38px); margin: 12px 0 8px; }
+section p.lead { color: var(--muted); max-width: 620px; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin-top: 34px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; }
+.card h3 { font-size: 19px; margin-bottom: 8px; }
+.card p { color: var(--muted); font-size: 15.5px; margin: 0; }
+.card .dot { width: 34px; height: 4px; border-radius: 3px; background: var(--ramp); display: block; margin-bottom: 16px; }
+
+/* ------------------------------------------------------------ privacy strip */
+.strip { background: var(--card); border: 1px solid var(--line); border-radius: 26px; padding: 40px; text-align: center; }
+.strip h2 { font-size: clamp(24px, 3.4vw, 32px); }
+.strip p { color: var(--muted); max-width: 640px; margin: 14px auto 0; }
+
+/* ------------------------------------------------------------------ legal */
+/* TR: Yalnız DİKEY dolgu — kısayol yazılırsa .wrap'ın yatay 24px'i ezilir ve metin kenara yapışır.
+   EN: Vertical padding ONLY — the shorthand would override .wrap's horizontal 24px and glue the
+       text to the edge. */
+.legal { padding-top: 56px; padding-bottom: 40px; }
+.legal h1 { font-size: clamp(30px, 4.6vw, 42px); }
+.legal .updated { color: var(--faint); font-size: 14px; margin-top: 10px; }
+.legal h2 { font-size: 22px; margin: 40px 0 10px; }
+.legal h3 { font-size: 17px; margin: 26px 0 6px; font-family: 'Geist', sans-serif; font-weight: 700; }
+.legal p, .legal li { color: #c9cbd8; font-size: 16.5px; }
+.legal ul { padding-left: 22px; }
+.legal li { margin-bottom: 8px; }
+.legal table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 15.5px; }
+.legal th, .legal td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.legal th { color: var(--text); font-weight: 700; }
+.legal td { color: var(--muted); }
+.callout { background: var(--card); border: 1px solid var(--line); border-left: 3px solid var(--safe);
+  border-radius: 14px; padding: 20px 22px; margin: 24px 0; }
+.callout strong { color: var(--text); }
+
+/* ----------------------------------------------------------------- footer */
+footer { border-top: 1px solid var(--line); padding: 44px 0 60px; margin-top: 40px; }
+footer .cols { display: flex; flex-wrap: wrap; gap: 28px; justify-content: space-between; align-items: flex-start; }
+footer a { color: var(--muted); font-size: 15px; }
+footer a:hover { color: var(--text); }
+footer .links { display: flex; flex-wrap: wrap; gap: 22px; }
+footer .co { color: var(--faint); font-size: 14px; }
+
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .hero { padding: 56px 0 40px; }
+  .shots figure { width: 100%; max-width: 320px; }
+  section { padding: 46px 0; }
+}
