@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!--
+  TR: Destek / SSS sayfası. Play Console'daki destek e-postasıyla eşleşir; SSS içeriği uygulamanın
+      gerçek davranışından türedi (limiter, EQ bağımsızlığı, bildirim, OEM kısıtları).
+  EN: Support / FAQ page. Matches the support email in Play Console; the FAQ content derives from
+      the app's real behavior (limiter, EQ independence, notification, OEM restrictions).
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support — Booster</title>
+<meta name="description" content="Help with Booster: common questions about the boost, the equalizer, notifications and device support.">
+<link rel="icon" href="assets/img/favicon.png" type="image/png">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap bar">
+    <img src="assets/img/icon.png" alt="Booster icon">
+    <span class="name">Booster</span>
+    <span class="spec ver">Support</span>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap narrow legal">
+
+  <h1>Support</h1>
+  <p class="updated">Write to <a href="mailto:support@kurtsoft.com.tr">support@kurtsoft.com.tr</a> — we read every message and usually answer within two business days.</p>
+
+  <h2>Common questions</h2>
+
+  <h3>The volume doesn't get louder on my device</h3>
+  <p>Make sure your system volume is already near the top — Booster adds gain on top of it — and that
+  the dial is above 100%. On a few devices the manufacturer restricts system-wide audio effects; when
+  Booster detects this it tells you directly on the dial.</p>
+
+  <h3>The sound crackles at high levels</h3>
+  <p>Booster includes a limiter to prevent this, but very small speakers can still struggle with heavy
+  bass at extreme levels. Lower the boost slightly, or reduce the Bass control in the equalizer.</p>
+
+  <h3>Does the equalizer need the boost to be on?</h3>
+  <p>No. The 10-band EQ, Bass, Surround and Reverb work on their own — at any volume, even with the
+  booster switched off. Turn the EQ on and shape the sound; the boost is a separate control.</p>
+
+  <h3>Why does Booster show a persistent notification?</h3>
+  <p>Android requires a visible notification while an app keeps working in the background. That
+  notification is exactly what lets the boost stay active while you listen in Spotify, YouTube or any
+  other app — removing it would stop the boost. It disappears as soon as you stop Booster or swipe the
+  app away from recents.</p>
+
+  <h3>Why does the mini player ask for notification access?</h3>
+  <p>Android exposes what's playing through a permission called "Notification access". Booster uses it
+  only to detect the active media session so it can show the track and offer play/pause/skip. It is
+  optional — everything else works without it — and notification content is never stored or sent
+  anywhere. See the <a href="privacy.html">Privacy Policy</a>.</p>
+
+  <h3>Is listening at high volume safe?</h3>
+  <p>High volume — especially with headphones and for long periods — can cause permanent hearing
+  damage. Booster warns you at high boost levels; reduce the level immediately if you experience
+  discomfort, ringing, or muffled hearing.</p>
+
+  <h3>How do I delete my data?</h3>
+  <p>Booster collects nothing, and your settings live only on your device. See the
+  <a href="data-deletion.html">data deletion page</a> — clearing the app's storage or uninstalling
+  removes everything.</p>
+
+  <h2>Still stuck?</h2>
+  <p>Email <a href="mailto:support@kurtsoft.com.tr">support@kurtsoft.com.tr</a> and tell us your device
+  model, your Android version and what happened. Screenshots help a lot.</p>
+
+</div>
+
+<footer class="site">
+  <div class="wrap grid">
+    <div>
+      <span class="spec">Booster · com.kurtsoft.booster</span>
+      <div class="co">© 2026 Kurtsoft Yazılım ve Teknoloji A.Ş.<br>
+      <a href="mailto:support@kurtsoft.com.tr">support@kurtsoft.com.tr</a></div>
+    </div>
+    <div class="col">
+      <span class="spec">App</span>
+      <a href="https://play.google.com/store/apps/details?id=com.kurtsoft.booster">Google Play</a>
+      <a href="support.html">Support</a>
+    </div>
+    <div class="col">
+      <span class="spec">Legal</span>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="data-deletion.html">Data Deletion</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

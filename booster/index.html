@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<!--
+  TR: Booster tanıtım ana sayfası — "studio rack / spec sheet" tasarım dili. Play linki gerçek
+      id'yi gösterir (com.kurtsoft.booster); yayın öncesi 404 döner.
+  EN: The Booster marketing home page — the "studio rack / spec sheet" design language. The Play
+      link points at the real id (com.kurtsoft.booster); it 404s until the app is published.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Booster — Volume Booster &amp; Equalizer</title>
+<meta name="description" content="Booster pushes your volume past the system limit with clean, distortion-controlled gain, and adds a real 10-band equalizer — all on your device, no data collected.">
+<meta property="og:title" content="Booster — Volume Booster &amp; Equalizer">
+<meta property="og:description" content="Boost past your phone's limit, keep it clean — and when it's off, it's really off.">
+<meta property="og:image" content="assets/img/icon.png">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/img/favicon.png" type="image/png">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap bar">
+    <img src="assets/img/icon.png" alt="Booster icon">
+    <span class="name">Booster</span>
+    <span class="spec ver">v1.0.0 · Android 8+</span>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#transparency">Transparency</a>
+      <a href="#privacy">Privacy</a>
+      <a href="support.html">Support</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div>
+      <span class="spec">Volume booster <b>+</b> 10-band equalizer</span>
+      <h1>More gain.<br>Zero <em>dirt</em>.</h1>
+      <p class="sub">Booster pushes your volume past the system limit with clean, distortion-controlled
+      gain — a limiter guards the end of the chain, so louder never means crackle.</p>
+      <a class="btn" href="https://play.google.com/store/apps/details?id=com.kurtsoft.booster">Get it on Google Play</a>
+      <div class="chips">
+        <span>free</span>
+        <span>no ads</span>
+        <span>no account</span>
+        <span>no data collected</span>
+      </div>
+    </div>
+    <div class="stage">
+      <img src="assets/img/shot-home.png" alt="The Booster dial at MAX, raised past the system volume limit">
+    </div>
+  </div>
+
+</div>
+
+<div class="eqdeco" aria-hidden="true">
+  <span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span>
+</div>
+<div class="ruler" aria-hidden="true"></div>
+
+<div class="wrap">
+
+  <section id="features">
+    <div class="sechead">
+      <span class="spec">01 / Inside</span>
+    </div>
+    <h2>Built like studio gear</h2>
+    <p class="lead">Most boosters crank one slider and let it distort. Booster splits the job the way
+    hardware does: gain, limiter, and a real equalizer — each doing only its part.</p>
+
+    <div class="bento">
+      <div class="b wide">
+        <div class="txt">
+          <span class="spec">Gain stage</span>
+          <h3>Boost past the limit</h3>
+          <p>Clean gain beyond 100% on speakers, wired headphones and Bluetooth. A built-in limiter
+          sits at the end of the chain and catches peaks before they clip.</p>
+        </div>
+        <img src="assets/img/shot-home.png" alt="The Booster dial raised past 100%">
+      </div>
+      <div class="b wide">
+        <div class="txt">
+          <span class="spec">EQ section</span>
+          <h3>10 bands, 18 presets</h3>
+          <p>Ten bands with Bass, Surround and Reverb — fully independent of the boost. Works at any
+          volume, even with the booster switched off.</p>
+        </div>
+        <img src="assets/img/shot-eq.png" alt="The 10-band equalizer with Bass, Surround and Reverb">
+      </div>
+      <div class="b">
+        <span class="spec">Background</span>
+        <h3>Keeps running</h3>
+        <p>Start the boost, switch to Spotify or YouTube — it stays active, with controls in a
+        persistent notification.</p>
+      </div>
+      <div class="b sysline">
+        <span class="spec">Media</span>
+        <h3>Now playing</h3>
+        <p>An optional mini player detects what's playing and gives you play, pause and skip without
+        leaving Booster.</p>
+      </div>
+      <div class="b">
+        <span class="spec">Timer</span>
+        <h3>Sleep timer</h3>
+        <p>Fall asleep to your music — Booster switches the boost off by itself when the timer runs
+        out.</p>
+      </div>
+      <div class="b warnline">
+        <span class="spec">Safety</span>
+        <h3>Hearing guard</h3>
+        <p>Clear warnings at high boost levels — because louder should always be your choice, not an
+        accident.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="transparency">
+    <div class="sechead">
+      <span class="spec">02 / Signal path</span>
+    </div>
+    <h2>Off means off</h2>
+    <p class="lead">Booster's one hard rule: with the boost and EQ turned off, it applies zero
+    processing. No hidden "enhancement", no silent EQ curve.</p>
+
+    <div class="path">
+      <div class="row" aria-label="Signal path when Booster is off: audio flows from the source to the output, bypassing the boost, limiter and EQ">
+        <span class="node">Source</span>
+        <span class="wire" aria-hidden="true"></span>
+        <span class="node dim">Boost</span>
+        <span class="wire" aria-hidden="true"></span>
+        <span class="node dim">Limiter</span>
+        <span class="wire" aria-hidden="true"></span>
+        <span class="node dim">EQ</span>
+        <span class="wire" aria-hidden="true"></span>
+        <span class="node on">Output</span>
+      </div>
+      <p class="cap"><strong>Everything off → bit-for-bit system sound.</strong> The effects join the
+      chain only when you raise the dial past 100% or switch the equalizer on — and leave it the
+      moment you turn them off.</p>
+    </div>
+  </section>
+
+</div>
+
+<section id="privacy" class="privacy">
+  <div class="wrap inner">
+    <div>
+      <span class="spec">03 / Privacy</span>
+      <h2>No accounts. No tracking. No data.</h2>
+      <p>Booster collects nothing — no analytics, no ads, no personal data. Your settings live only
+      on your phone, and every bit of audio processing happens on the device itself.</p>
+      <p style="margin-top:20px"><a class="btn line" href="privacy.html">Read the privacy policy</a></p>
+    </div>
+    <div class="bignum">0 bytes<small>leave your phone</small></div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap grid">
+    <div>
+      <span class="spec">Booster · com.kurtsoft.booster</span>
+      <div class="co">© 2026 Kurtsoft Yazılım ve Teknoloji A.Ş.<br>
+      <a href="mailto:support@kurtsoft.com.tr">support@kurtsoft.com.tr</a></div>
+    </div>
+    <div class="col">
+      <span class="spec">App</span>
+      <a href="https://play.google.com/store/apps/details?id=com.kurtsoft.booster">Google Play</a>
+      <a href="support.html">Support</a>
+    </div>
+    <div class="col">
+      <span class="spec">Legal</span>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="data-deletion.html">Data Deletion</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
