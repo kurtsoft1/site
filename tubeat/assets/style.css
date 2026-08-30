@@ -1,0 +1,225 @@
+/*
+  TR: tuBEAT sayfalarının ortak stili — https://kurtsoft.com.tr/tubeat/
+      Kardeş sayfalarla AYNI SÖZLEŞME (sıfır JS, sıfır dış bağımlılık, fontlar kendi
+      sunucumuzda) ama BİLEREK AYRI GÖRÜNÜ. Owner'ın isteği: "diğer projelerden farklı olsun".
+
+      AYRIMI NEYE DAYANDIRDIM — uydurma bir tema değil, uygulamanın kendi malzemesi:
+        · TİPOGRAFİ: fontlar doğrudan `app/src/main/res/font/`ten alındı. Fraunces (ekrandaki
+          "Henüz müzik yok" serifi), Outfit (arayüz), Syne (vurgu). SoundLift Sora+Geist
+          kullanıyor — ikisi de geometrik sans. Başlıklarda SERİF kullanmak, iki siteyi ilk
+          bakışta ayıran tek hamledir; renk değiştirmek bunu yapmaz.
+        · DÜZEN: sola dayalı, editoryal. SoundLift ortalanmış. Ritim farkı, renk farkından
+          daha güçlü ayırır.
+        · İMZA ÖĞESİ: logodaki ışık izi. Bölüm araları bir görsel değil, satır içi SVG —
+          keskin, ölçeklenebilir, ve renk paletiyle birlikte değişir.
+        · PALET: siyah + krem + amber→pembe→mint (logonun dalgası). SoundLift mor.
+  EN: Shared stylesheet for the tuBEAT pages. Same contract as the sibling pages — zero JS, zero
+      external dependencies, self-hosted fonts — but a deliberately DIFFERENT look, as the owner
+      asked. The difference is grounded in the app's own material rather than invented: the
+      typefaces are lifted straight from the app's resources (Fraunces for display, Outfit for UI,
+      Syne for accents) where SoundLift pairs two geometric sans faces, so a SERIF headline is the
+      single move that separates the two sites at a glance; the layout is left-aligned editorial
+      where SoundLift is centred, because a difference in rhythm separates more strongly than a
+      difference in colour; and the signature element is the logo's light trail, drawn as inline
+      SVG so it stays crisp and follows the palette.
+*/
+
+@font-face {
+  font-family: 'Fraunces';
+  src: url('fonts/fraunces_opsz_wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Outfit';
+  src: url('fonts/outfit_wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Syne';
+  src: url('fonts/syne_wght.ttf') format('truetype-variations');
+  font-weight: 400 800;
+  font-display: swap;
+}
+
+:root {
+  --ink: #08080a;
+  --ink-2: #0e0e12;
+  --card: rgba(255, 255, 255, 0.04);
+  --line: rgba(255, 255, 255, 0.09);
+  --line-2: rgba(255, 255, 255, 0.16);
+  --cream: #f4f1ea;        /* TR: logodaki krem / EN: the wordmark's cream */
+  --muted: #a09a90;
+  --faint: #6a655e;
+  --amber: #ffb870;
+  --pink: #ff4d7e;
+  --mint: #a8f0e0;
+  --ramp: linear-gradient(90deg, #ffb870 0%, #ff4d7e 34%, #a8f0e0 68%, #ffffff 100%);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--cream);
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* TR: Zemin parıltısı — logonun ışığı sayfaya sızmış gibi. Çok düşük yoğunluk: siyah kalsın
+       ama ölü siyah olmasın.
+   EN: A ground glow, as if the logo's light had leaked onto the page — kept very low so the
+       page stays black without going dead. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(760px 460px at 8% -10%, rgba(255, 184, 112, 0.17), transparent 60%),
+    radial-gradient(700px 420px at 96% 4%, rgba(255, 77, 126, 0.11), transparent 58%),
+    radial-gradient(980px 560px at 46% 112%, rgba(168, 240, 224, 0.07), transparent 60%);
+}
+
+.wrap { position: relative; z-index: 1; max-width: 1060px; margin: 0 auto; padding: 0 26px; }
+.narrow { max-width: 720px; }
+
+/* TR: BAŞLIKLAR SERİF — sitenin kimliği burada. Optik boyut ekseni büyük puntoda inceltir,
+       küçük puntoda kalınlaştırır; tek bir aile iki iş görür.
+   EN: Serif headlines carry the site's identity. The optical-size axis thins the face at display
+       sizes and thickens it at small ones, so one family does two jobs. */
+h1, h2, h3 { font-family: 'Fraunces', Georgia, 'Times New Roman', serif; margin: 0; letter-spacing: -0.01em; }
+h1 { font-weight: 600; font-variation-settings: 'opsz' 120; }
+h2 { font-weight: 600; font-variation-settings: 'opsz' 60; }
+h3 { font-weight: 600; font-variation-settings: 'opsz' 20; }
+
+a { color: var(--amber); text-decoration: none; }
+a:hover { text-decoration: underline; }
+strong { font-weight: 600; color: var(--cream); }
+code { font-size: 0.92em; color: var(--mint); background: rgba(168,240,224,.07); padding: 1px 6px; border-radius: 6px; }
+
+/* ── ÜST ÇUBUK ──────────────────────────────────────────────────────────────────────────── */
+header {
+  position: sticky; top: 0; z-index: 5;
+  background: rgba(8, 8, 10, 0.8);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+header .bar { display: flex; align-items: center; gap: 13px; height: 66px; }
+header img, header .mark-sm { width: 32px; height: 32px; border-radius: 9px; display: block; }
+header .name { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 17px; letter-spacing: 0.01em; }
+header nav { margin-left: auto; display: flex; gap: 20px; font-size: 14.5px; }
+header nav a { color: var(--muted); }
+header nav a:hover { color: var(--cream); text-decoration: none; }
+
+/* ── IŞIK İZİ / THE LIGHT TRAIL ─────────────────────────────────────────────────────────── */
+/* TR: Sayfanın imza öğesi. Bölümleri ayırır ama bir "çizgi" değil — logodaki dalganın aynısı.
+   EN: The page's signature element: not a rule but the logo's own wave. */
+.trail { display: block; width: 100%; height: 44px; margin: 6px 0 0; }
+.trail.tight { height: 30px; }
+
+/* ── HERO — SOLA DAYALI (soundlift ortalanmış) ──────────────────────────────────────────── */
+.hero { padding: 78px 0 20px; display: grid; grid-template-columns: 1.35fr 0.65fr; gap: 40px; align-items: center; }
+.hero .mark { width: 132px; height: 132px; border-radius: 32px; border: 1px solid var(--line); box-shadow: 0 30px 80px rgba(255, 140, 90, .2); justify-self: end; }
+.hero h1 { font-size: clamp(40px, 6.4vw, 66px); line-height: 1.02; }
+.hero h1 em { font-style: normal; background: var(--ramp); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero p.sub { color: var(--muted); font-size: 19px; max-width: 540px; margin: 22px 0 0; }
+.hero .kicker { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--faint); margin-bottom: 18px; }
+
+.cta {
+  display: inline-flex; align-items: center; gap: 10px;
+  margin-top: 30px; padding: 15px 30px; border-radius: 999px;
+  background: var(--ramp); color: #16120d;
+  font-family: 'Syne', sans-serif; font-weight: 800; font-size: 15px;
+  transition: transform .18s ease;
+}
+.cta:hover { transform: translateY(-2px); text-decoration: none; }
+.cta.ghost { background: transparent; color: var(--cream); border: 1px solid var(--line-2); }
+.note { color: var(--faint); font-size: 13.5px; margin-top: 15px; }
+
+/* ── EKRAN GÖRÜNTÜLERİ ──────────────────────────────────────────────────────────────────── */
+.shots { display: flex; gap: 20px; flex-wrap: wrap; padding: 34px 0 56px; }
+.shots figure { margin: 0; width: 252px; }
+.shots img { width: 100%; border-radius: 20px; border: 1px solid var(--line); display: block; }
+.shots figcaption { color: var(--muted); font-size: 13.5px; margin-top: 11px; }
+
+/* ── BÖLÜMLER ───────────────────────────────────────────────────────────────────────────── */
+section { padding: 54px 0; }
+.eyebrow { font-family: 'Syne', sans-serif; color: var(--faint); font-size: 12px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; }
+section h2 { font-size: clamp(28px, 4.2vw, 40px); margin: 12px 0 10px; }
+section p.lead { color: var(--muted); max-width: 620px; margin: 0; }
+
+/* TR: ÖZELLİKLER NUMARALI SATIRLAR — kart ızgarası DEĞİL. SoundLift kart ızgarası kullanıyor;
+       aynı içeriği farklı ritimle vermek, iki siteyi ayıran ikinci hamle. Numara burada süs
+       değil: liste bir SIRA taşımadığı için numaralar YOK, onun yerine ince bir dalga dilimi
+       her satırın soluna iner.
+   EN: Features are rows, not a card grid — SoundLift uses a grid, and giving the same content a
+       different rhythm is the second move that separates the two. No numbering is used, because
+       the list carries no order; a thin slice of the wave marks each row instead. */
+.rows { margin-top: 34px; border-top: 1px solid var(--line); }
+.row-item { display: grid; grid-template-columns: 4px 220px 1fr; gap: 22px; padding: 22px 0; border-bottom: 1px solid var(--line); align-items: start; }
+.row-item .bar { height: 100%; min-height: 34px; border-radius: 3px; background: var(--ramp); opacity: .75; }
+.row-item:nth-child(3n) .bar { background: linear-gradient(180deg, #ff4d7e, #a8f0e0); }
+.row-item:nth-child(3n+1) .bar { background: linear-gradient(180deg, #ffb870, #ff4d7e); }
+.row-item:nth-child(3n+2) .bar { background: linear-gradient(180deg, #a8f0e0, #ffffff); }
+.row-item h3 { font-size: 19px; }
+.row-item p { color: var(--muted); margin: 0; font-size: 15.5px; }
+
+/* ── HUKUKİ SAYFALAR ────────────────────────────────────────────────────────────────────── */
+.legal { padding: 50px 0 10px; }
+.legal h1 { font-size: clamp(32px, 5vw, 46px); }
+.legal .updated { color: var(--faint); font-size: 14px; margin-top: 12px; }
+.legal h2 { font-size: 23px; margin: 42px 0 10px; }
+.legal h3 { font-size: 17px; margin: 26px 0 6px; }
+.legal p, .legal li { color: var(--muted); }
+.legal ul { padding-left: 20px; }
+.legal li { margin: 7px 0; }
+.legal table { width: 100%; border-collapse: collapse; margin: 18px 0 6px; font-size: 15px; }
+.legal th, .legal td { text-align: left; padding: 11px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.legal th { font-family: 'Syne', sans-serif; color: var(--faint); font-size: 11.5px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; }
+.legal td { color: var(--muted); }
+/* TR: Geniş tablo SAYFAYI değil KENDİNİ kaydırır; yatay kayan bir gövde telefonda okumayı bitirir.
+   EN: A wide table scrolls itself, not the page — a sideways-scrolling body ruins phone reading. */
+.tablewrap { overflow-x: auto; }
+
+.callout {
+  background: var(--card); border: 1px solid var(--line);
+  border-left: 3px solid var(--amber); border-radius: 14px;
+  padding: 18px 20px; margin: 24px 0;
+}
+.callout p { margin: 0; color: var(--muted); }
+
+/* TR: Adım listesi — veri silme sayfasında "ne yapacağım" sorusunun cevabı. Numara BURADA
+       anlamlı, çünkü gerçekten bir sıra var.
+   EN: A step list for the deletion page, where numbers are meaningful because there IS an order. */
+ol.steps { counter-reset: s; list-style: none; padding: 0; margin: 22px 0 0; }
+ol.steps li { counter-increment: s; position: relative; padding: 0 0 18px 46px; color: var(--muted); }
+ol.steps li::before {
+  content: counter(s);
+  position: absolute; left: 0; top: 1px;
+  width: 30px; height: 30px; border-radius: 50%;
+  display: grid; place-items: center;
+  font-family: 'Syne', sans-serif; font-weight: 800; font-size: 13px;
+  color: #16120d; background: var(--ramp);
+}
+
+/* ── ALT BİLGİ ──────────────────────────────────────────────────────────────────────────── */
+footer { border-top: 1px solid var(--line); margin-top: 50px; padding: 32px 0 54px; }
+footer .row { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; }
+footer a { color: var(--muted); font-size: 14.5px; }
+footer a:hover { color: var(--cream); }
+footer .who { margin-left: auto; color: var(--faint); font-size: 13.5px; }
+
+@media (max-width: 760px) {
+  .hero { grid-template-columns: 1fr; gap: 22px; padding: 54px 0 12px; }
+  .hero .mark { justify-self: start; width: 104px; height: 104px; }
+  .row-item { grid-template-columns: 4px 1fr; }
+  .row-item h3 { margin-bottom: 4px; }
+  header nav { gap: 14px; font-size: 13.5px; }
+  footer .who { margin-left: 0; width: 100%; }
+}
