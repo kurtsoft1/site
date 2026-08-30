@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<!--
+  TR: tuBEAT veri silme talebi sayfası — https://kurtsoft.com.tr/tubeat/data-deletion.html
+      Tüm metin İNGİLİZCE (HİB kuralı). Sıfır JS, sıfır dış bağımlılık.
+      ⚠ NEDEN VAR: Play'in "Data safety" bölümünde işaretlediğimiz "You can request that data be
+        deleted" satırının GİDECEĞİ yer burası. O kutucuğu işaretleyip bir yol göstermemek,
+        beyanı boş bir söz yapardı.
+      ⚠ DÜRÜST SINIR, SAYFANIN İÇİNDE YAZILI: uygulamanın hesabı yok. Bu yüzden "hesabımı sil"
+        diye bir işlem YOK ve öyleymiş gibi yazılmadı. Silinebilecek tek şey, çökme/kullanım
+        kayıtlarının cihazına ait olan kısmı — ve kullanıcının asıl kontrolü kaldırma
+        (uninstall) ile kendi elinde. Olmayan bir düğmeyi vaat etmek, bir gün onu göstermek
+        zorunda kalmaktır.
+  EN: The data deletion page. It exists because the Data safety declaration ticks "You can request
+      that data be deleted", and ticking that without providing a route would make the declaration
+      an empty promise. The honest limit is written into the page: the app has no account, so
+      there is no "delete my account" flow and none is implied.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data Deletion — tuBEAT</title>
+<meta name="description" content="How to delete the data tuBEAT holds, and what there is to delete in the first place.">
+<link rel="icon" href="assets/img/favicon.png" type="image/png">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <!-- TR: ÜST ÇUBUK İŞARETİ — uygulama ikonu DEĞİL. İkonun içinde wordmark var ve 32px'te
+             okunmuyordu; üstelik hemen yanındaki "tuBEAT" yazısıyla aynı şeyi iki kez
+             söylüyordu. Yerine markanın okunabilen parçası kondu: dalga. Satır içi SVG olduğu
+             için ek istek üretmez ve her ekran yoğunluğunda keskin kalır.
+         EN: The header mark is NOT the app icon: the icon contains the wordmark, which is mush at
+             32px and repeats the adjacent "tuBEAT" text. It is replaced by the readable part of
+             the brand — the wave — inline, so it costs no request and stays crisp. -->
+    <svg class="mark-sm" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+      <rect x="0" y="0" width="32" height="32" rx="9" fill="#141216"/>
+      <path d="M5 19 C 9 19, 10 12, 14 12 S 20 20, 24 17 S 27 13, 28 14"
+            fill="none" stroke="url(#hw)" stroke-width="2.6" stroke-linecap="round"/>
+      <defs>
+        <linearGradient id="hw" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#ffb870"/><stop offset="45%" stop-color="#ff4d7e"/>
+          <stop offset="80%" stop-color="#a8f0e0"/><stop offset="100%" stop-color="#ffffff"/>
+        </linearGradient>
+      </defs>
+    </svg>
+    <span class="name">tuBEAT</span>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap narrow legal">
+
+  <h1>Data deletion</h1>
+  <p class="updated">Applies to <strong>tuBEAT</strong> (<code>com.kurtsoft.tubeat</code>) on Android · Effective 30 August 2026</p>
+
+  <svg class="trail tight" viewBox="0 0 1000 30" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="tw" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#ffb870"/><stop offset="34%" stop-color="#ff4d7e"/>
+        <stop offset="68%" stop-color="#a8f0e0"/><stop offset="100%" stop-color="#ffffff"/>
+      </linearGradient>
+    </defs>
+    <path d="M0 20 C 200 20, 260 6, 420 8 S 640 26, 780 16 S 900 6, 1000 10"
+          fill="none" stroke="url(#tw)" stroke-width="2.2" stroke-linecap="round"/>
+  </svg>
+
+  <div class="callout">
+    <p><strong>Start here.</strong> tuBEAT has <strong>no account</strong>, so there is no profile
+    to close and no login to revoke. Almost everything the app knows about you lives on your own
+    phone, and uninstalling removes it. The only data held elsewhere is crash reports and
+    anonymous usage events — and you can ask us to delete those.</p>
+  </div>
+
+  <h2>1. What is on your phone (you delete this yourself)</h2>
+  <p>Your library, playlists, settings, listening history and any lyrics you edited are stored in
+  the app's own storage on the device. To remove them:</p>
+  <ol class="steps">
+    <li>Open Android <strong>Settings → Apps → tuBEAT → Storage</strong> and tap
+    <strong>Clear storage</strong>, which resets the app to a fresh install; or</li>
+    <li><strong>Uninstall tuBEAT</strong>, which removes the app's storage entirely.</li>
+  </ol>
+  <p>Your music and video files are <strong>not</strong> touched by either step — they were never
+  the app's to delete. Playlists that were written to your shared storage as <code>.m3u8</code>
+  files also remain, because they are your files; delete them with any file manager if you want
+  them gone.</p>
+
+  <h2>2. What is held off the phone (we delete this on request)</h2>
+  <p>Two categories, and nothing else:</p>
+  <div class="tablewrap">
+  <table>
+    <thead>
+      <tr><th>Data</th><th>Where it is</th><th>Deleted on request</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Crash reports and diagnostics</td>
+        <td>Google Firebase Crashlytics</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>Anonymous in-app events, device and app info</td>
+        <td>Google Analytics for Firebase</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>Your name, email, phone, contacts, photos, location</td>
+        <td colspan="2">Never collected, so there is nothing to delete</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <p>These records are not linked to a name or an email address. They carry a random, resettable
+  installation identifier, which is how a specific device's records can be found and removed.</p>
+
+  <h2>3. How to request deletion</h2>
+  <ol class="steps">
+    <li>Email <a href="mailto:destek@kurtsoft.com.tr">destek@kurtsoft.com.tr</a> with the subject
+    <strong>“tuBEAT data deletion”</strong>.</li>
+    <li>Tell us the <strong>phone model and Android version</strong>, and roughly
+    <strong>when you used the app</strong>. That is usually enough to locate the records.</li>
+    <li>We reply to confirm, and delete the matching records <strong>within 30 days</strong>.</li>
+  </ol>
+  <div class="callout">
+    <p>We do not ask you to create an account, verify an identity or install anything in order to
+    make this request. If we cannot locate records matching your description, we will say so
+    plainly rather than claim a deletion we did not perform.</p>
+  </div>
+
+  <h2>4. Automatic deletion</h2>
+  <p>Even without a request, these records do not live forever: crash reports are retained by
+  Crashlytics for a limited period and then removed automatically, and analytics events are
+  deleted at the end of the retention period configured in Google Analytics.</p>
+
+  <h2>5. Contact</h2>
+  <p>Kurtsoft Yazılım ve Teknoloji A.Ş. · Antalya, Türkiye ·
+  <a href="mailto:destek@kurtsoft.com.tr">destek@kurtsoft.com.tr</a></p>
+
+</div>
+
+<footer>
+  <div class="wrap row">
+    <a href="index.html">tuBEAT</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Use</a>
+    <a href="mailto:destek@kurtsoft.com.tr">Support</a>
+    <span class="who">© 2026 Kurtsoft Yazılım ve Teknoloji A.Ş.</span>
+  </div>
+</footer>
+
+</body>
+</html>
