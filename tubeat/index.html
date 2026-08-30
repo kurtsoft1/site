@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<!--
+  TR: tuBEAT tanıtım sayfası — https://kurtsoft.com.tr/tubeat/
+      Tüm metin İNGİLİZCE (HİB kuralı). Sıfır JS, sıfır dış bağımlılık.
+      ⚠ ÖZELLİK LİSTESİ UYDURULMADI: her madde uygulamanın kendi dize kataloğundan ve kodundan
+        doğrulandı (Media3 oturumu, Cast sağlayıcısı, dalga formu, sürüş modu, dinleme
+        istatistikleri, müzik kartı dışa aktarımı, m3u8 listeler). Olmayan bir özelliği vaat
+        etmek ilk yorumda geri döner.
+      ⚠ GÖRÜNÜ BİLEREK KARDEŞ SAYFALARDAN AYRI (owner isteği): serif başlık + sola dayalı
+        editoryal düzen + uygulamanın kendi fontları. Gerekçe `assets/style.css` başında.
+  EN: The tuBEAT landing page. English only (HİB), zero JS, zero external dependencies. Every
+      feature claim was verified against the app's own strings and code rather than imagined, and
+      the look is deliberately distinct from the sibling pages — see the stylesheet header.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>tuBEAT — Local Music &amp; Video Player for Android</title>
+<meta name="description" content="tuBEAT plays the music and video already on your phone: a waveform you can scrub, synced lyrics, Chromecast, Android Auto and playlists that outlive the app. No account, nothing for sale.">
+<meta property="og:title" content="tuBEAT — Local Music &amp; Video Player">
+<meta property="og:description" content="Your library, played properly. Waveform scrubbing, synced lyrics, Chromecast, Android Auto, driving mode. No account, nothing for sale.">
+<meta property="og:image" content="assets/img/icon.png">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/img/favicon.png" type="image/png">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <!-- TR: ÜST ÇUBUK İŞARETİ — uygulama ikonu DEĞİL. İkonun içinde wordmark var ve 32px'te
+             okunmuyordu; üstelik hemen yanındaki "tuBEAT" yazısıyla aynı şeyi iki kez
+             söylüyordu. Yerine markanın okunabilen parçası kondu: dalga. Satır içi SVG olduğu
+             için ek istek üretmez ve her ekran yoğunluğunda keskin kalır.
+         EN: The header mark is NOT the app icon: the icon contains the wordmark, which is mush at
+             32px and repeats the adjacent "tuBEAT" text. It is replaced by the readable part of
+             the brand — the wave — inline, so it costs no request and stays crisp. -->
+    <svg class="mark-sm" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+      <rect x="0" y="0" width="32" height="32" rx="9" fill="#141216"/>
+      <path d="M5 19 C 9 19, 10 12, 14 12 S 20 20, 24 17 S 27 13, 28 14"
+            fill="none" stroke="url(#hw)" stroke-width="2.6" stroke-linecap="round"/>
+      <defs>
+        <linearGradient id="hw" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#ffb870"/><stop offset="45%" stop-color="#ff4d7e"/>
+          <stop offset="80%" stop-color="#a8f0e0"/><stop offset="100%" stop-color="#ffffff"/>
+        </linearGradient>
+      </defs>
+    </svg>
+    <span class="name">tuBEAT</span>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#privacy">Privacy</a>
+      <a href="privacy.html">Policy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div>
+      <p class="kicker">Local player · Android</p>
+      <h1>Your library,<br><em>played properly</em></h1>
+      <p class="sub">tuBEAT plays the music and video already on your phone — with a waveform you can actually scrub, playlists that survive an uninstall, and playback that keeps going when the screen goes dark.</p>
+      <!-- TR: Play bağlantısı yayına çıkınca gerçek URL ile değiştirilecek (footer'da da var).
+           EN: Swap for the real Play URL at launch (the footer carries it too). -->
+      <div><a class="cta" href="https://play.google.com/store/apps/details?id=com.kurtsoft.tubeat">Get it on Google Play</a></div>
+      <p class="note">Free · No account, no sign-up · Android 7.0 and up</p>
+    </div>
+    <img class="mark" src="assets/img/icon.png" alt="tuBEAT">
+  </div>
+
+  <!-- TR: İMZA ÖĞESİ — logodaki ışık izi, satır içi SVG. Bir görsel değil: ölçeklenir, keskin
+         kalır ve palet değişirse onunla değişir.
+       EN: The signature element — the logo's light trail as inline SVG, so it scales, stays
+           crisp, and follows the palette. -->
+  <svg class="trail" viewBox="0 0 1000 44" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="tw" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#ffb870"/><stop offset="34%" stop-color="#ff4d7e"/>
+        <stop offset="68%" stop-color="#a8f0e0"/><stop offset="100%" stop-color="#ffffff"/>
+      </linearGradient>
+      <filter id="tg" x="-20%" y="-200%" width="140%" height="500%">
+        <feGaussianBlur stdDeviation="5"/>
+      </filter>
+    </defs>
+    <path d="M0 30 C 160 30, 200 12, 330 12 S 500 34, 640 24 S 850 8, 1000 14"
+          fill="none" stroke="url(#tw)" stroke-width="9" opacity=".35" filter="url(#tg)"/>
+    <path d="M0 30 C 160 30, 200 12, 330 12 S 500 34, 640 24 S 850 8, 1000 14"
+          fill="none" stroke="url(#tw)" stroke-width="2.4" stroke-linecap="round"/>
+  </svg>
+
+  <!-- TR: Ekran görüntüleri emülatörde GERÇEK uygulamadan çekilir; kompozit/kurgu görsel yok.
+       EN: Screenshots are captured from the REAL app on an emulator — nothing composited. -->
+  <div class="shots">
+    <figure>
+      <img src="assets/img/p_music.png" alt="tuBEAT music library listing tracks">
+      <figcaption>Everything you already own, in one place</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/img/p_player.png" alt="tuBEAT now playing screen with the waveform scrubber">
+      <figcaption>Scrub on the waveform, not a thin line</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/img/p_video.png" alt="tuBEAT video library">
+      <figcaption>Video lives in the same library</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/img/p_playlists.png" alt="tuBEAT playlists screen">
+      <figcaption>Playlists that are just files in your storage</figcaption>
+    </figure>
+  </div>
+
+  <section id="features">
+    <p class="eyebrow">What it does</p>
+    <h2>A player, not a service</h2>
+    <p class="lead">There is nothing to subscribe to and no catalogue to browse. tuBEAT opens your own files and then gets out of the way.</p>
+
+    <div class="rows">
+      <div class="row-item"><div class="bar"></div><h3>Waveform scrubbing</h3>
+        <p>The seek bar draws the track's actual waveform, so you can land on the chorus instead of hunting for it along a one-pixel line.</p></div>
+      <div class="row-item"><div class="bar"></div><h3>Music and video together</h3>
+        <p>One library, two tabs, one playback engine — so a video behaves the same way a song does.</p></div>
+      <div class="row-item"><div class="bar"></div><h3>Background playback</h3>
+        <p>A real media session: lock-screen controls, notification, headset buttons, and playback that survives the screen turning off.</p></div>
+      <div class="row-item"><div class="bar"></div><h3>Chromecast</h3>
+        <p>Send anything in your library to a Cast device and keep the controls in your hand.</p></div>
+      <div class="row-item"><div class="bar"></div><h3>Android Auto and driving mode</h3>
+        <p>Browsable on the car screen, and a phone mode with large targets that offers to open itself when your car's Bluetooth audio connects.</p></div>
+      <div class="row-item"><div class="bar"></div><h3>Playlists that outlive the app</h3>
+        <p>Written as standard <code>.m3u8</code> files in your own storage, so uninstalling tuBEAT does not take them with it.</p></div>
+      <div class="row-item"><div class="bar"></div><h3>Folders, artists, hidden items</h3>
+        <p>Browse the way your files are actually arranged. Merge an artist that duplicated itself, and hide what you never want to see again.</p></div>
+      <div class="row-item"><div class="bar"></div><h3>Lyrics, with an editor</h3>
+        <p>Synced lyrics when they can be found — and an editor for when they cannot, with line timing you fix yourself.</p></div>
+      <div class="row-item"><div class="bar"></div><h3>Crossfade and gapless</h3>
+        <p>Optional crossfade between tracks, and the gapless behaviour a local player is supposed to have.</p></div>
+      <div class="row-item"><div class="bar"></div><h3>Listening stats</h3>
+        <p>What you actually played, counted on the phone. No leaderboard, no year-in-review, no sharing you did not ask for.</p></div>
+      <div class="row-item"><div class="bar"></div><h3>Music cards</h3>
+        <p>Turn a track into a shareable card — artwork, title and waveform — exported as an image or a short video.</p></div>
+      <div class="row-item"><div class="bar"></div><h3>Built for older phones too</h3>
+        <p>Runs from Android 7.0. Reduced motion, high contrast and large text are settings, not afterthoughts.</p></div>
+    </div>
+  </section>
+
+  <svg class="trail tight" viewBox="0 0 1000 30" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 20 C 200 20, 260 6, 420 8 S 640 26, 780 16 S 900 6, 1000 10"
+          fill="none" stroke="url(#tw)" stroke-width="2.2" stroke-linecap="round" opacity=".85"/>
+  </svg>
+
+  <section id="privacy">
+    <p class="eyebrow">Privacy</p>
+    <h2>Your files stay your files</h2>
+    <p class="lead">No account, no sign-up, nothing for sale. Your music and video are read from your device and are never uploaded.</p>
+    <p class="lead" style="margin-top:14px">Two things do leave the phone, and it is fair that you know which: when a track plays, its <strong>title and artist</strong> may be sent to look up lyrics and cover art, and the app reports <strong>crashes and anonymous usage events</strong> so it can be fixed. Nothing else about your library is transmitted.</p>
+    <p class="lead" style="margin-top:14px"><a href="privacy.html">Read the full policy</a> · <a href="data-deletion.html">Request data deletion</a></p>
+  </section>
+
+  <section>
+    <p class="eyebrow">Support</p>
+    <h2>Something broken?</h2>
+    <p class="lead">Write to <a href="mailto:destek@kurtsoft.com.tr">destek@kurtsoft.com.tr</a> and say what you did and what happened. For a playback problem, the file format and the phone model help more than anything else.</p>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap row">
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Use</a>
+    <a href="data-deletion.html">Data Deletion</a>
+    <a href="mailto:destek@kurtsoft.com.tr">Support</a>
+    <a href="https://play.google.com/store/apps/details?id=com.kurtsoft.tubeat">Google Play</a>
+    <span class="who">© 2026 Kurtsoft Yazılım ve Teknoloji A.Ş.</span>
+  </div>
+</footer>
+
+</body>
+</html>
