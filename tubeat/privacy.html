@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<!--
+  TR: tuBEAT gizlilik politikası. Yayın yeri: https://kurtsoft.com.tr/tubeat/privacy.html
+      Tüm metin İNGİLİZCE (HİB kuralı). Sıfır JS, sıfır dış bağımlılık.
+      ⚠ BU BELGE UYGULAMAYA ÖZELDİR. Şirketin genel politikası (kurtsoft.com.tr/privacy)
+        tuBEAT'i saymıyor; Play, politikanın uygulamaya UYGULANABİLİR olmasını şart koşuyor.
+      ⚠ İÇERİK UYDURULMADI: aşağıdaki her veri akışı kaynak koddan doğrulandı — medya okuma
+        izinleri, şarkı adı/sanatçı ile çevrimiçi söz-kapak araması, Firebase Analytics /
+        Crashlytics / Remote Config, ve Cast keşfi. Toplanmayan bir şeyi "toplanmıyor" demek
+        kolaydır; buradaki liste tersine, GERÇEKTEN gideni yazar.
+      ⚠ Aynı tablo Play Console'daki "Data safety" formunun referansıdır: beyan ile bu sayfa
+        birbirini tutmak ZORUNDA (Google'ın kendi şartı).
+  EN: The tuBEAT privacy policy. All copy in English (the HİB rule), zero JS, zero external
+      dependencies. It is app-specific because the company-wide policy does not cover tuBEAT and
+      Play requires a policy that applies to the app. Every flow below was verified against the
+      source rather than assumed, and the table doubles as the reference for the Data safety
+      declaration, which must agree with this page.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — tuBEAT</title>
+<meta name="description" content="What tuBEAT reads from your device, what leaves your phone, and what never does.">
+<link rel="icon" href="assets/img/favicon.png" type="image/png">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <!-- TR: ÜST ÇUBUK İŞARETİ — uygulama ikonu DEĞİL. İkonun içinde wordmark var ve 32px'te
+             okunmuyordu; üstelik hemen yanındaki "tuBEAT" yazısıyla aynı şeyi iki kez
+             söylüyordu. Yerine markanın okunabilen parçası kondu: dalga. Satır içi SVG olduğu
+             için ek istek üretmez ve her ekran yoğunluğunda keskin kalır.
+         EN: The header mark is NOT the app icon: the icon contains the wordmark, which is mush at
+             32px and repeats the adjacent "tuBEAT" text. It is replaced by the readable part of
+             the brand — the wave — inline, so it costs no request and stays crisp. -->
+    <svg class="mark-sm" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+      <rect x="0" y="0" width="32" height="32" rx="9" fill="#141216"/>
+      <path d="M5 19 C 9 19, 10 12, 14 12 S 20 20, 24 17 S 27 13, 28 14"
+            fill="none" stroke="url(#hw)" stroke-width="2.6" stroke-linecap="round"/>
+      <defs>
+        <linearGradient id="hw" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#ffb870"/><stop offset="45%" stop-color="#ff4d7e"/>
+          <stop offset="80%" stop-color="#a8f0e0"/><stop offset="100%" stop-color="#ffffff"/>
+        </linearGradient>
+      </defs>
+    </svg>
+    <span class="name">tuBEAT</span>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="terms.html">Terms</a>
+      <a href="data-deletion.html">Data deletion</a>
+      <a href="mailto:destek@kurtsoft.com.tr">Support</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap narrow legal">
+
+  <h1>Privacy Policy</h1>
+  <p class="updated">Applies to <strong>tuBEAT</strong> (<code>com.kurtsoft.tubeat</code>) on Android · Effective 30 August 2026</p>
+  <svg class="trail tight" viewBox="0 0 1000 30" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="tw" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#ffb870"/><stop offset="34%" stop-color="#ff4d7e"/>
+        <stop offset="68%" stop-color="#a8f0e0"/><stop offset="100%" stop-color="#ffffff"/>
+      </linearGradient>
+    </defs>
+    <path d="M0 20 C 200 20, 260 6, 420 8 S 640 26, 780 16 S 900 6, 1000 10"
+          fill="none" stroke="url(#tw)" stroke-width="2.2" stroke-linecap="round"/>
+  </svg>
+
+  <p>tuBEAT is a player for media that is already on your device. It has no account, no sign-up
+  and no advertising, and it sells nothing. This page describes exactly what the app reads, what
+  leaves your phone, and what never does.</p>
+
+  <div class="callout">
+    <p><strong>The short version.</strong> Your music and video files are read from your device
+    and are <strong>never uploaded</strong>. Two things do leave the phone: the <strong>title and
+    artist of a playing track</strong>, sent to look up lyrics and artwork, and
+    <strong>crash reports and anonymous usage events</strong>, sent so the app can be fixed and
+    improved. There is nothing else.</p>
+  </div>
+
+  <h2>1. Who we are</h2>
+  <p>tuBEAT is published by <strong>Kurtsoft Yazılım ve Teknoloji A.Ş.</strong>, Antalya, Türkiye.
+  For anything in this policy, write to
+  <a href="mailto:destek@kurtsoft.com.tr">destek@kurtsoft.com.tr</a>.</p>
+
+  <h2>2. What the app reads from your device</h2>
+  <p>To do its job, tuBEAT needs to see the media you already have:</p>
+  <ul>
+    <li><strong>Audio and video files</strong> — read through Android's media permissions so the
+    library can list them, read their tags and artwork, and play them. These files
+    <strong>stay on your device</strong>; they are never copied to us or to anyone else.</li>
+    <li><strong>Playlists you create</strong> — written as ordinary <code>.m3u8</code> files in
+    your own storage, so they remain yours if you uninstall the app.</li>
+    <li><strong>Your settings and listening history</strong> — language, theme, playback options
+    and play counts, all stored in the app's own storage on the phone.</li>
+  </ul>
+  <p>Denying the media permission does not lock you out of the app; it simply means there is
+  nothing for the library to show.</p>
+
+  <h2>3. What leaves your phone</h2>
+
+  <h3>3.1 Lyrics and artwork lookup</h3>
+  <p>When a track plays, the app can look up synced lyrics and cover art for it. To do that it
+  sends the <strong>track title, artist name and track length</strong> to third-party lyrics and
+  music-metadata providers over the internet. It does not send the audio file, the file path, or
+  anything that identifies you or your device. If a lookup fails, nothing is stored and the app
+  simply shows no lyrics.</p>
+
+  <h3>3.2 Crash reports and usage analytics</h3>
+  <p>The app uses <strong>Google Firebase Crashlytics</strong> to report crashes and
+  <strong>Google Analytics for Firebase</strong> to count anonymous in-app events (for example
+  “playback started”, “settings opened”). These carry technical information such as device model,
+  Android version, app version, coarse region and a random, resettable installation identifier.
+  They do not carry your name, your email, your file names or your library contents.</p>
+
+  <h3>3.3 Remote configuration</h3>
+  <p><strong>Firebase Remote Config</strong> is used to change a few settings without shipping an
+  update — for example turning a feature off if it misbehaves. Fetching that configuration sends
+  the same installation identifier and app version described above.</p>
+
+  <h3>3.4 Chromecast</h3>
+  <p>If you cast, the app looks for Cast devices on your <strong>local network</strong> and
+  streams the selected file to the device you pick. That traffic stays on your own network and
+  does not pass through us.</p>
+
+  <h2>4. Data summary</h2>
+  <p>This is the same list declared in the Google Play “Data safety” section.</p>
+
+  <div class="tablewrap">
+  <table>
+    <thead>
+      <tr><th>Data</th><th>Collected</th><th>Shared</th><th>Purpose</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Music and video files on your device</td>
+        <td>Read on device only</td>
+        <td>No</td>
+        <td>Playing your library. Never uploaded.</td>
+      </tr>
+      <tr>
+        <td>Track title, artist, duration</td>
+        <td>Yes, while a track plays</td>
+        <td>Yes — lyrics &amp; metadata providers</td>
+        <td>Finding lyrics and cover art</td>
+      </tr>
+      <tr>
+        <td>Crash logs and diagnostics</td>
+        <td>Yes</td>
+        <td>Yes — Google (Crashlytics)</td>
+        <td>Fixing crashes</td>
+      </tr>
+      <tr>
+        <td>App interactions, device and app info</td>
+        <td>Yes</td>
+        <td>Yes — Google (Analytics)</td>
+        <td>Understanding which features are used</td>
+      </tr>
+      <tr>
+        <td>Installation identifier</td>
+        <td>Yes</td>
+        <td>Yes — Google</td>
+        <td>Grouping a crash or session; resettable</td>
+      </tr>
+      <tr>
+        <td>Name, email, phone, contacts, photos, location, microphone, camera</td>
+        <td><strong>No</strong></td>
+        <td><strong>No</strong></td>
+        <td>Not collected and not requested</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p>All transmitted data travels over encrypted connections (HTTPS).</p>
+
+  <h2>5. How long anything is kept</h2>
+  <ul>
+    <li><strong>On your phone:</strong> settings, playlists and listening history stay until you
+    delete them in the app or uninstall it. Uninstalling removes the app's own storage; playlists
+    written to your shared storage remain, because they are your files.</li>
+    <li><strong>Crash reports:</strong> retained by Google's Crashlytics for a limited period and
+    then deleted automatically.</li>
+    <li><strong>Analytics events:</strong> retained according to the retention period configured
+    in Google Analytics, after which they are deleted automatically.</li>
+    <li><strong>Lyrics lookups:</strong> not stored by us at all. The request is made, the answer
+    is displayed, and that is the end of it.</li>
+  </ul>
+
+  <h2>6. Your choices</h2>
+  <ul>
+    <li><strong>Stop the lookups:</strong> turn off internet access for the app, or use it in
+    airplane mode. Playback of your own files is unaffected.</li>
+    <li><strong>Reset the identifier:</strong> the installation identifier is regenerated if you
+    clear the app's data or reinstall it.</li>
+    <li><strong>Remove everything:</strong> uninstall the app. To ask us to delete anything held
+    on our side, write to
+    <a href="mailto:destek@kurtsoft.com.tr">destek@kurtsoft.com.tr</a> and we will action it.</li>
+  </ul>
+
+  <h2>7. Children</h2>
+  <p>tuBEAT is not directed at children under 13 and we do not knowingly collect data from them.
+  If you believe a child has provided information through the app, write to us and it will be
+  removed.</p>
+
+  <h2>8. Changes</h2>
+  <p>If this policy changes in a way that affects what leaves your phone, the date at the top of
+  this page changes with it and the updated version is published here before the new app version
+  is released.</p>
+
+  <h2>9. Contact</h2>
+  <p>Kurtsoft Yazılım ve Teknoloji A.Ş. · Antalya, Türkiye ·
+  <a href="mailto:destek@kurtsoft.com.tr">destek@kurtsoft.com.tr</a></p>
+
+</div>
+
+<footer>
+  <div class="wrap row">
+    <a href="index.html">tuBEAT</a>
+    <a href="terms.html">Terms of Use</a>
+    <a href="data-deletion.html">Data Deletion</a>
+    <a href="mailto:destek@kurtsoft.com.tr">Support</a>
+    <span class="who">© 2026 Kurtsoft Yazılım ve Teknoloji A.Ş.</span>
+  </div>
+</footer>
+
+</body>
+</html>
